@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 // Channel ID is on the the browser URL.: https://mycompany.slack.com/messages/MYCHANNELID/
-// Pass it as a parameter: node ./delete-slack-messages.js CHANNEL_ID
 
 // CONFIGURATION #######################################################################################################
 
@@ -99,6 +98,7 @@ function processHistory() {
             const response = JSON.parse(body);
 
             if (response.messages && response.messages.length > 0) {
+              console.log(response.messages)
 
                 if (response.has_more) {
                     nextCursor = response.response_metadata.next_cursor;
